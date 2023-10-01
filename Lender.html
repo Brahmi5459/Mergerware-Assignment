@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Add CSS for spacing and positioning */
+        select#role {
+            margin-bottom: 20px; /* Add space below the select box */
+        }
+
+        form#loanIDGenerationForm {
+            margin-top: 20px; /* Add space above the form */
+        }
+    </style>
+    <script>
+        // Simulated array of past loans (you should replace this with your actual data)
+        var pastLoans = ["Loan123", "Loan456", "Loan789"];
+
+        function generateLoanID() {
+            var loanID;
+            do {
+                // Generate a random loan ID (for demonstration purposes)
+                loanID = "Loan" + Math.floor(Math.random() * 10000);
+            } while (pastLoans.includes(loanID));
+
+            document.getElementById("loanID").value = loanID;
+        }
+    </script>
+</head>
+<body style="background-color: grey;">
+    <label for="role">Select Role:</label>
+    <select id="role" name="role">
+        <option value="lender">Lender</option>
+        <!-- Add more options here if needed -->
+    </select>
+    
+    <form id="loanIDGenerationForm">
+        <label for="loanID">Loan ID:</label>
+        <input type="text" id="loanID" name="loanID" readonly>
+        <br>
+        <button type="button" onclick="generateLoanID();">Generate Loan ID</button>
+    </form>
+    
+    <!-- Add space below the form -->
+    <br>
+    
+    <!-- Display Payment Amount -->
+    <h2>Payment Confirmation</h2>
+    <p>Pay Amount to Borrower: $1000.00</p>
+
+    <!-- Confirm Payment Button -->
+    <button onclick="confirmPayment();">Confirm Payment</button>
+
+    <script>
+        function confirmPayment() {
+            // Simulate the confirmation of the predetermined payment amount
+            alert("Payment confirmed: $1000.00");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Role and Status</title>
+</head>
+<body>
+    <h1>User Role and Status</h1>
+
+    <!-- User Role Selection -->
+    <h2>Select Your Role</h2>
+    <form id="roleForm">
+        <label for="userRole">Select Role:</label>
+        <select id="userRole">
+            <option value="lender">Lender</option>
+            <option value="borrower">Borrower</option>
+        </select><br><br>
+
+        <input type="button" value="Change Status" onclick="changeStatus()">
+    </form>
+
+    <!-- User Status -->
+    <h2>Change User Status</h2>
+    <form id="userStatusForm">
+        <label for="userRole">Selected Role:</label>
+        <span id="selectedRole">Not Selected</span><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function changeStatus() {
+            const selectedRole = document.getElementById("userRole").value;
+            const selectedRoleText = document.getElementById("userRole").options[document.getElementById("userRole").selectedIndex].text;
+
+            // Update the selected role in the "Change User Status" form
+            document.getElementById("selectedRole").textContent = selectedRoleText;
+        }
+    </script>
+</body>
+</html>
